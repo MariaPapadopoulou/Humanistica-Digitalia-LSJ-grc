@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Humanistica Digitalia — LSJ (grc)</title>
+  <style>
+    body {
+      font-family: "Gentium Plus", "Times New Roman", serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 0.3em;
+    }
+    p.subtitle {
+      margin-top: 0;
+      color: #555;
+      font-size: 15px;
+    }
+    .search-box {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    input {
+      width: 70%;
+      padding: 10px;
+      font-size: 18px;
+      margin-right: 10px;
+    }
+    button {
+      padding: 10px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    small {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Humanistica Digitalia — LSJ (grc)</h1>
+  <p class="subtitle">
+    Πληκτρολόγησε αρχαία ελληνική λέξη και άνοιξε το λήμμα σε περιβάλλον με κείμενο (Logeion, με LSJ).
+  </p>
+
+  <div class="search-box">
+    <input id="lemma" placeholder="π.χ. λόγος, ψυχή, ἀρετή">
+    <button onclick="openLogeion()">Άνοιγμα λήμματος</button>
+  </div>
+
+  <p><small>
+    Το κουμπί ανοίγει νέο παράθυρο στο <b>Logeion (University of Chicago)</b>, όπου η λέξη εμφανίζεται
+    με LSJ και άλλα λεξικά σε μορφή κειμένου.
+  </small></p>
+
+  <script>
+    function openLogeion() {
+      const word = document.getElementById("lemma").value.trim();
+      if (!word) return;
+      const url = "https://logeion.uchicago.edu/" + encodeURIComponent(word);
+      window.open(url, "_blank");
+    }
+
+    // Enter = click
+    document.getElementById("lemma").addEventListener("keyup", function(e) {
+      if (e.key === "Enter") {
+        openLogeion();
+      }
+    });
+  </script>
+
+</body>
+</html>
 
